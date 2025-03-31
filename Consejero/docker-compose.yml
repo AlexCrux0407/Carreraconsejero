@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  career-advisor:
+    build: .
+    container_name: career-advisor
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/app
+    privileged: true  # Para acceder a información del hardware del host
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
